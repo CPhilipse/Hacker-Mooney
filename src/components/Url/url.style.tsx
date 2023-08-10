@@ -26,9 +26,6 @@ export default StyleSheet.create({
     left: -metrics.scale(20),
   },
   lockIcon: {
-    height: metrics.icon.m,
-    width: metrics.icon.m,
     marginLeft: metrics.scale(20),
-    // backgroundColor: '#FFF',
   },
 });

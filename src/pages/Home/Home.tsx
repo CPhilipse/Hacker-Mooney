@@ -36,7 +36,6 @@ import ListItem from './components/ListItem';
 import Lists from './components/Lists';
 import Pages from '../../enum/Pages';
 import Tabs from './components/Tabs';
-import Url from '../../components/Url';
 import {faker} from '@faker-js/faker';
 
 interface Props {
@@ -121,8 +120,7 @@ const Home = ({navigation}: Props) => {
     <SafeAreaProvider>
       <StatusBar hidden />
       <View style={styles.container}>
-        <Url url="https://mooney.com" />
-        {/* <Header scrollY={scrollY} />
+        <Header scrollY={scrollY} />
         <View style={{flexDirection: 'row', flex: 1}}>
           <Tabs
             tabs={_tabs}
@@ -137,7 +135,7 @@ const Home = ({navigation}: Props) => {
             onScroll={onScroll}
             navigation={navigation}
           />
-        </View> */}
+        </View>
       </View>
     </SafeAreaProvider>
   );

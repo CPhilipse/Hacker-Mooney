@@ -75,12 +75,15 @@ const Header = ({scrollY}: Props) => {
   return (
     <View style={[styles.container, {paddingTop: top}]}>
       <View style={styles.titleWrapper}>
-        <LottieView
-          style={styles.hackerAnimation}
-          source={animations.hacker}
-          autoPlay
-          loop
-        />
+        <View>
+          <LottieView
+            style={styles.hackerAnimation}
+            source={animations.hacker}
+            autoPlay
+            loop
+          />
+          <View style={styles.skeletonCover} />
+        </View>
         <Animated.Text style={[styles.animatedTitle, headingStyle]}>
           Mooney
         </Animated.Text>

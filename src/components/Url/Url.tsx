@@ -1,8 +1,9 @@
 import {Image, Text, View} from 'react-native';
+import {colors, images, metrics} from '../../themes';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icons from '../../enum/Icons';
 import React from 'react';
-import {images} from '../../themes';
 import styles from './url.style';
 
 interface Props {
@@ -15,7 +16,12 @@ const Url = ({url}: Props) => {
       <View style={styles.urlWrapper}>
         <Text style={styles.url}>{url}</Text>
         {/* <Image source={images.lock} style={styles.lockIcon} /> */}
-        <Icon name="rocket" size={30} color="#900" />
+        <Icon
+          name={Icons.LOCK}
+          size={metrics.icon.m}
+          color={colors.white}
+          style={styles.lockIcon}
+        />
       </View>
     </View>
   );

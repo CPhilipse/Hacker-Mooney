@@ -2,6 +2,7 @@ import {Text, View} from 'react-native';
 
 import HackerText from '../../components/HackerText';
 import React from 'react';
+import Url from '../../components/Url';
 import styles from './sqli.style';
 
 interface Props {
@@ -11,6 +12,8 @@ interface Props {
 const Sqli = ({navigation}: Props) => {
   return (
     <View style={styles.container}>
+      <Url url="https://mooney.com" />
+
       <HackerText />
       <Text style={styles.desc}>
         Om een website te laten werken met een inlogsysteem, zit er een systeem

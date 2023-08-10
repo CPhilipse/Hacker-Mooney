@@ -32,7 +32,14 @@ export default StyleSheet.create({
     width: metrics.scale(300),
     height: metrics.scale(300),
     right: metrics.scale(70),
-    // backgroundColor: '#000',
+  },
+  skeletonCover: {
+    width: metrics.scale(25),
+    height: metrics.scale(25),
+    backgroundColor: '#C6D3E3',
+    left: metrics.scale(57),
+    bottom: metrics.scale(108),
+    borderRadius: metrics.scale(10),
   },
   animatedTitle: {
     fontSize: _layout.headingBig,

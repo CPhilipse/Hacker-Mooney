@@ -18,4 +18,5 @@ export default {
   GAME_CONTROLLER: 'game-controller',
   ARROW_LEFT: 'arrow-left',
   ARROW_RIGHT: 'arrow-right',
+  LOCK: 'lock',
 };
