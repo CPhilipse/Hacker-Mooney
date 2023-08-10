@@ -2,11 +2,12 @@ import Animated, {
   interpolate,
   runOnJS,
   useAnimatedStyle,
+  useSharedValue,
 } from 'react-native-reanimated';
+import {Text, View} from 'react-native';
 
 import LottieView from 'lottie-react-native';
 import React from 'react';
-import {View} from 'react-native';
 import animations from '../../../../themes/animations';
 import {metrics} from '../../../../themes';
 import styles from './header.style';
@@ -14,6 +15,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface Props {
   scrollY: Animated.SharedValue<number>;
+  text: Animated.SharedValue<number>;
 }
 
 const _layout = {
@@ -28,16 +30,19 @@ const _layout = {
   headingSmall: 28,
 };
 
-const Header = ({scrollY}: Props) => {
+const Header = ({scrollY, text}: Props) => {
   const {top} = useSafeAreaInsets();
   const threshold = React.useMemo(() => {
     return metrics.screenHeight * (1 - _layout.indicatorHeightPercentage);
   }, []);
-  // const inputRange = React.useMemo(() => {
-  //   return [-1, 0, 1, threshold - 1, threshold, threshold + 1];
-  // }, []);
+
+  // const textAnimation = useAnimatedStyle(() => {
+  //   return {
+  //     transform: [{translateY: text.value}],
+  //   };
+  // });
+
   const headingStyle = useAnimatedStyle(() => {
-    // 'worklet';
     return {
       fontSize: interpolate(
         scrollY.value,
@@ -83,6 +88,9 @@ const Header = ({scrollY}: Props) => {
             loop
           />
           <View style={styles.skeletonCover} />
+          {/* <Animated.Text style={[styles.laptopText, textAnimation]}>
+            {`Jesus\nsaves!`}
+          </Animated.Text> */}
         </View>
         <Animated.Text style={[styles.animatedTitle, headingStyle]}>
           Mooney

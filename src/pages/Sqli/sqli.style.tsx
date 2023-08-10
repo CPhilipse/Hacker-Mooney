@@ -5,6 +5,17 @@ export default StyleSheet.create({
   container: {
     flex: 1,
   },
+  title: {
+    ...metrics.fonts.title,
+    paddingHorizontal: metrics.horizontal.pagePadding,
+    paddingTop: metrics.vertical.spacing.s,
+  },
+  subTitle: {
+    ...metrics.fonts.subtitle,
+    paddingHorizontal: metrics.horizontal.pagePadding,
+    paddingTop: metrics.vertical.spacing.m,
+    textAlign: 'center',
+  },
   desc: {
     paddingHorizontal: metrics.horizontal.pagePadding,
     paddingTop: metrics.vertical.spacing.s,

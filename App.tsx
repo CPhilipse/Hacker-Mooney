@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {Button, Text, View} from 'react-native';
 
+import CandyShop from './src/pages/Sqli/assignments/CandyShop';
 import Home from './src/pages/Home';
 import {NavigationContainer} from '@react-navigation/native';
 import Pages from './src/enum/Pages';
@@ -49,6 +50,14 @@ function App() {
           name={Pages.SQLI}
           component={Sqli}
           options={{title: 'SQL Injection'}}
+        />
+        <Stack.Screen
+          name={Pages.CANDY_SHOP}
+          component={CandyShop}
+          options={{
+            headerShown: false,
+            title: 'Candy Shop SQL Injection Assignment',
+          }}
         />
         <Stack.Screen name={Pages.XSS} component={Sqli} />
         <Stack.Screen name={Pages.XXE} component={Sqli} />

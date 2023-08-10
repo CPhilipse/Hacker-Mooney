@@ -104,6 +104,11 @@ const fonts = {
     fontFamily: 'Sansita-Italic',
     color: colors.black,
   },
+  verySmall: {
+    fontFamily: 'Sansita-Regular',
+    fontSize: scale(15),
+    color: colors.black,
+  },
 };
 
 export default {

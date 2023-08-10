@@ -12,6 +12,7 @@ import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
+  withRepeat,
   withTiming,
 } from 'react-native-reanimated';
 import {
@@ -108,6 +109,8 @@ const _data = {
 const Home = ({navigation}: Props) => {
   const [activeTab, setActiveTab] = React.useState(_tabs[0]);
   const scrollY = useSharedValue(0);
+  const text = useSharedValue(0);
+
   const onScroll = useAnimatedScrollHandler(ev => {
     scrollY.value = ev.contentOffset.y;
   });
@@ -116,11 +119,16 @@ const Home = ({navigation}: Props) => {
     scrollY.value = withTiming(0, {duration: 400});
   }, [activeTab]);
 
+  // TODO: decide if you wanna keep the Jesus saves animation on the laptop.
+  // React.useEffect(() => {
+  //   text.value = withRepeat(withTiming(1, {duration: 100}), -1, true);
+  // }, []);
+
   return (
     <SafeAreaProvider>
       <StatusBar hidden />
       <View style={styles.container}>
-        <Header scrollY={scrollY} />
+        <Header scrollY={scrollY} text={text} />
         <View style={{flexDirection: 'row', flex: 1}}>
           <Tabs
             tabs={_tabs}

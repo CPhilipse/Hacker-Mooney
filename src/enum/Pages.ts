@@ -1,6 +1,9 @@
 export default {
   HOME: 'Home',
   SQLI: 'SQL Injection',
+  CANDY_SHOP: 'Candy Shop',
+  DETECTIVE: 'Detective',
+  IM_IN: "I'm in",
   XSS: 'Cross Site Scripting',
   XXE: 'XML External Entity Attack',
   SSTI: 'Server Side Template Injection',

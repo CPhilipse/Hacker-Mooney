@@ -41,6 +41,13 @@ export default StyleSheet.create({
     bottom: metrics.scale(108),
     borderRadius: metrics.scale(10),
   },
+  laptopText: {
+    ...metrics.fonts.verySmall,
+    left: metrics.scale(57),
+    bottom: metrics.scale(108),
+    position: 'absolute',
+    textAlign: 'center',
+  },
   animatedTitle: {
     fontSize: _layout.headingBig,
     color: colors.black,
