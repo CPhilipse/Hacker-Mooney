@@ -1,5 +1,6 @@
+import {colors, metrics} from '../../../../themes';
+
 import {StyleSheet} from 'react-native';
-import {metrics, colors} from '../../../../themes';
 
 const _layout = {
   indicatorWidth: 12,

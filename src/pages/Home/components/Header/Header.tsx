@@ -4,9 +4,10 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
-import {Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 
 import LottieView from 'lottie-react-native';
+import Pages from '../../../../enum/Pages';
 import React from 'react';
 import animations from '../../../../themes/animations';
 import {metrics} from '../../../../themes';
@@ -16,6 +17,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 interface Props {
   scrollY: Animated.SharedValue<number>;
   text: Animated.SharedValue<number>;
+  navigation: any;
 }
 
 const _layout = {
@@ -30,7 +32,7 @@ const _layout = {
   headingSmall: 28,
 };
 
-const Header = ({scrollY, text}: Props) => {
+const Header = ({scrollY, text, navigation}: Props) => {
   const {top} = useSafeAreaInsets();
   const threshold = React.useMemo(() => {
     return metrics.screenHeight * (1 - _layout.indicatorHeightPercentage);
@@ -80,7 +82,7 @@ const Header = ({scrollY, text}: Props) => {
   return (
     <View style={[styles.container, {paddingTop: top}]}>
       <View style={styles.titleWrapper}>
-        <View>
+        <Pressable onPress={() => navigation.navigate(Pages.MOONEY)}>
           <LottieView
             style={styles.hackerAnimation}
             source={animations.hacker}
@@ -91,7 +93,7 @@ const Header = ({scrollY, text}: Props) => {
           {/* <Animated.Text style={[styles.laptopText, textAnimation]}>
             {`Jesus\nsaves!`}
           </Animated.Text> */}
-        </View>
+        </Pressable>
         <Animated.Text style={[styles.animatedTitle, headingStyle]}>
           Mooney
         </Animated.Text>

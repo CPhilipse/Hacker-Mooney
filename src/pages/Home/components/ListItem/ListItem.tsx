@@ -3,7 +3,6 @@ import {Image, ImageProps, Pressable, Text, View} from 'react-native';
 
 import React from 'react';
 import styles from './listitem.style';
-import {useInterpolateMotiPressable} from 'moti/interactions';
 
 interface Props {
   item: {id: number; name: string; image: ImageProps['source']; page: string};

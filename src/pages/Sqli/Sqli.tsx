@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 
 import Carousel from '../../components/Carousel';
 import HackerText from '../../components/HackerText';
@@ -12,9 +12,8 @@ interface Props {
 
 const Sqli = ({navigation}: Props) => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* <Url url="https://mooney.com" /> */}
-
       {/* <HackerText /> */}
       <Text style={styles.title}>Hacken met SQL Injection</Text>
       <Text style={styles.desc}>
@@ -32,10 +31,22 @@ const Sqli = ({navigation}: Props) => {
         uitvoeren. Wanneer dit mogelijk is, kan de hacker gegevens ophalen uit
         de database en relatief gemakkelijk toegang krijgen tot het systeem.
       </Text>
-
-      <Text style={styles.subTitle}>Selecteer een oefening</Text>
+      <Text style={styles.subTitle}>Een voorbeeld</Text>
+      <Text style={styles.desc}>
+        Een query kan er op verschillende manieren uitzien afhankelijk van het
+        soort opslag (database) dat gebruikt wordt. Wij gaan hier uit van een
+        MySQL database. Om alle gebruikers op te halen van de database, kan de
+        query er als volgt uitzien:
+      </Text>
+      {/* TODO: make this query holder its own universal component */}
+      <View style={styles.queryHolder}>
+        <Text style={styles.query}>select * from user;</Text>
+      </View>
+      <Text style={[styles.subTitle, {textAlign: 'center'}]}>
+        Selecteer een oefening
+      </Text>
       <Carousel navigation={navigation} />
-    </View>
+    </ScrollView>
   );
 };
 

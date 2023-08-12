@@ -4,6 +4,7 @@ import {Button, Text, View} from 'react-native';
 
 import CandyShop from './src/pages/Sqli/assignments/CandyShop';
 import Home from './src/pages/Home';
+import Mooney from './src/pages/Mooney';
 import {NavigationContainer} from '@react-navigation/native';
 import Pages from './src/enum/Pages';
 import Sqli from './src/pages/Sqli';
@@ -45,6 +46,11 @@ function App() {
           name={Pages.HOME}
           component={Home}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name={Pages.MOONEY}
+          component={Mooney}
+          options={{title: 'Hacker Mooney'}}
         />
         <Stack.Screen
           name={Pages.SQLI}

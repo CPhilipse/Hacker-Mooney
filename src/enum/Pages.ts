@@ -1,5 +1,6 @@
 export default {
   HOME: 'Home',
+  MOONEY: 'Mooney',
   SQLI: 'SQL Injection',
   CANDY_SHOP: 'Candy Shop',
   DETECTIVE: 'Detective',

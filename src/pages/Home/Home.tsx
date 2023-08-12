@@ -67,44 +67,56 @@ const _layout = {
   headingSmall: 28,
 };
 
-const _tabs = ['Reconnaissance', 'Web', 'Privilege Escalation'];
-// const _data = _tabs.reduce((acc, item) => {
-//   // console.log('TEST: ', acc, ' - ', item);
-//   acc[item] = [...Array(10).keys()].map(() => {
-//     return {
-//       key: faker.string.uuid(),
-//       name: faker.music.songName(),
-//       image: faker.helpers.arrayElement(_icons),
-//     };
-//   });
-
-//   console.log(acc['Web']);
-//   return acc;
-// }, {});
-
+// const _tabs = ['Reconnaissance', 'Web', 'Privilege Escalation'];
+const _tabs = ['Ken je target', 'Web aanvallen', 'Rechten verhogen'];
 const _data = {
-  Reconnaissance: [{key: '1', name: 'Recon 1', image: 1, page: '-'}],
-  Web: [
-    {key: '1', name: 'SQL Injection', image: 1, page: Pages.SQLI},
-    {key: '2', name: 'Local File Inclusion (LFI)', image: 2, page: Pages.LFI},
-    {key: '3', name: 'Cross Site Scripting (XSS)', image: 1, page: Pages.XSS},
+  'Ken je target': [
+    {key: '0', name: 'Introductie', image: images.detective, page: '-'},
+    {key: '1', name: 'Netwerk Scannen', image: images.network, page: '-'},
+    {key: '2', name: 'Website Scannen', image: images.website, page: '-'},
+    {key: '3', name: 'DNS Enumeratie', image: images.dns, page: '-'},
+    {key: '4', name: 'SNMP Enumeratie', image: images.snmp, page: '-'},
+    {key: '5', name: 'FTP Enumeratie', image: images.ftp, page: '-'},
+    {key: '6', name: 'SMB Enumeratie', image: images.smb, page: '-'},
+  ],
+  'Web aanvallen': [
+    {key: '0', name: 'Introductie', image: images.hacker_cracked, page: '-'},
+    {key: '1', name: 'SQL Injection', image: images.sqli, page: Pages.SQLI},
+    {
+      key: '2',
+      name: 'Local File Inclusion (LFI)',
+      image: images.path,
+      page: Pages.LFI,
+    },
+    {
+      key: '3',
+      name: 'Cross Site Scripting (XSS)',
+      image: images.xss,
+      page: Pages.XSS,
+    },
     {
       key: '4',
       name: 'Server Side Template Injection (SSTI)',
-      image: 2,
+      image: images.ssti,
       page: Pages.SSTI,
     },
-    {key: '5', name: 'External Entity Attack (XXE)', image: 1, page: Pages.XXE},
-    {key: '6', name: 'Remote File Inclusion (RFI)', image: 2, page: Pages.RFI},
+    {
+      key: '5',
+      name: 'External Entity Attack (XXE)',
+      image: images.xxe,
+      page: Pages.XXE,
+    },
+    {
+      key: '6',
+      name: 'Remote File Inclusion (RFI)',
+      image: images.rfi,
+      page: Pages.RFI,
+    },
   ],
-  'Privilege Escalation': [{key: '1', name: 'Priv 1', image: 1, page: '-'}],
+  'Rechten verhogen': [
+    {key: '0', name: 'Introductie', image: images.privesc, page: '-'},
+  ],
 };
-
-// const _data = _tabs.map((tab) => {
-//   var lists = [];
-
-//   return
-// })
 
 const Home = ({navigation}: Props) => {
   const [activeTab, setActiveTab] = React.useState(_tabs[0]);
@@ -128,7 +140,7 @@ const Home = ({navigation}: Props) => {
     <SafeAreaProvider>
       <StatusBar hidden />
       <View style={styles.container}>
-        <Header scrollY={scrollY} text={text} />
+        <Header scrollY={scrollY} text={text} navigation={navigation} />
         <View style={{flexDirection: 'row', flex: 1}}>
           <Tabs
             tabs={_tabs}

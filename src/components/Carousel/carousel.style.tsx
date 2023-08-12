@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: metrics.getStatusBarHeight(),
+    // paddingTop: metrics.getStatusBarHeight(),
     // backgroundColor: '#ecf0f1',
     // backgroundColor: '#000',
   },

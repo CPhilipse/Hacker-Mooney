@@ -95,7 +95,11 @@ function Item({item, index, scrollX, activeIndex, navigation}) {
             interpolate(
               currentIndex.value,
               inputRange,
-              [_itemHeight * 0.8, _itemHeight * 0.5, _itemHeight * 0.8],
+              [
+                (_itemHeight - 180) * 0.8,
+                (_itemHeight - 180) * 0.5,
+                (_itemHeight - 180) * 0.8,
+              ],
               Extrapolate.CLAMP,
             ),
           ),
@@ -111,7 +115,7 @@ function Item({item, index, scrollX, activeIndex, navigation}) {
           translateY: interpolate(
             currentIndex.value,
             inputRange,
-            [_itemHeight * 0.1, 0, _itemHeight * 0.1],
+            [(_itemHeight - 150) * 0.1, 0, (_itemHeight - 150) * 0.1],
             Extrapolate.CLAMP,
           ),
         },
@@ -124,7 +128,7 @@ function Item({item, index, scrollX, activeIndex, navigation}) {
         {
           width: _itemWidth,
           margin: _spacing,
-          height: _itemHeight,
+          height: _itemHeight - 150,
           overflow: 'hidden',
           borderRadius: 24,
         },
@@ -196,7 +200,7 @@ const Carousel = ({navigation}) => {
       <AnimatedFlatList
         data={data}
         keyExtractor={item => item.key}
-        style={{flexGrow: 0}}
+        // style={{flexGrow: 0}}
         horizontal
         onScroll={onScroll}
         scrollEventThrottle={16}

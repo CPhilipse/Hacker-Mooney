@@ -8,17 +8,24 @@ export default StyleSheet.create({
   title: {
     ...metrics.fonts.title,
     paddingHorizontal: metrics.horizontal.pagePadding,
-    paddingTop: metrics.vertical.spacing.s,
+    paddingVertical: metrics.vertical.spacing.s,
   },
   subTitle: {
     ...metrics.fonts.subtitle,
     paddingHorizontal: metrics.horizontal.pagePadding,
     paddingTop: metrics.vertical.spacing.m,
-    textAlign: 'center',
+    // textAlign: 'center',
   },
   desc: {
     paddingHorizontal: metrics.horizontal.pagePadding,
-    paddingTop: metrics.vertical.spacing.s,
+    // paddingTop: metrics.vertical.spacing.s,
     ...metrics.fonts.regular,
   },
+  queryHolder: {
+    backgroundColor: 'grey',
+    opacity: 0.8,
+    padding: metrics.scale(10),
+    marginHorizontal: metrics.horizontal.pagePadding,
+  },
+  query: {},
 });
