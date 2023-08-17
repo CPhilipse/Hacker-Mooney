@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 import DummyData from '../../../../enum/DummyData';
-import HackerText from '../../../../components/HackerText';
 import LottieView from 'lottie-react-native';
 import React from 'react';
 import Url from '../../../../components/Url';
@@ -20,16 +19,33 @@ interface Props {
 }
 
 const CandyShop = ({navigation}: Props) => {
-  const [username, onChangeUsername] = React.useState('');
-  const [password, onChangePassword] = React.useState('');
-  const [successfulSqli, onChangeSuccessfulSqli] = React.useState(false);
+  const [usernameInput, onChangeUsername] = React.useState('');
+  const [passwordInput, onChangePassword] = React.useState('');
+  const [successfulSqli, onChangeSuccessfulSqli] = React.useState(100);
+  const [loggedIn, onChangeLoggedIn] = React.useState(false);
+
+  const handleLogin = () => {
+    DummyData.USER_TABLE_ROWS.map(({username, password}) => {
+      if (username === usernameInput && password === passwordInput) {
+        onChangeLoggedIn(true);
+      } else {
+        onChangeLoggedIn(false);
+      }
+    });
+  };
+
+  const handleLogout = () => {
+    return onChangeLoggedIn(false);
+  };
 
   const handleSqli = () => {
-    if (username.includes('OR 1=1') && password.includes('OR 1=1')) {
-      onChangeSuccessfulSqli(true);
+    if (usernameInput.includes('OR 1=1') && passwordInput.includes('OR 1=1')) {
+      onChangeSuccessfulSqli(200);
     } else {
-      onChangeSuccessfulSqli(false);
+      onChangeSuccessfulSqli(404);
     }
+
+    return handleLogin();
   };
 
   return (
@@ -42,27 +58,38 @@ const CandyShop = ({navigation}: Props) => {
           autoPlay
           loop
         />
-        <Text style={styles.title}>Inloggen</Text>
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangeUsername}
-          value={username}
-          placeholder="Gebruikersnaam"
-          placeholderTextColor={'#000'}
-        />
-        <TextInput
-          style={styles.input}
-          onChangeText={onChangePassword}
-          value={password}
-          placeholder="*******"
-          placeholderTextColor={'#000'}
-        />
-        <Pressable style={styles.loginCta} onPress={handleSqli}>
-          <Text style={styles.inloggenText}>Inloggen</Text>
-        </Pressable>
+        {loggedIn ? (
+          <>
+            <Text style={styles.title}>Welkom {usernameInput}</Text>
+            <Pressable style={styles.loginCta} onPress={handleLogout}>
+              <Text style={styles.inloggenText}>Uitloggen</Text>
+            </Pressable>
+          </>
+        ) : (
+          <>
+            <Text style={styles.title}>Inloggen</Text>
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangeUsername}
+              value={usernameInput}
+              placeholder="Gebruikersnaam"
+              placeholderTextColor={'#000'}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={onChangePassword}
+              value={passwordInput}
+              placeholder="*******"
+              placeholderTextColor={'#000'}
+            />
+            <Pressable style={styles.loginCta} onPress={handleSqli}>
+              <Text style={styles.inloggenText}>Inloggen</Text>
+            </Pressable>
+          </>
+        )}
 
         {/* TODO: make this table its own universal component */}
-        {successfulSqli && (
+        {successfulSqli == 200 && (
           <View style={styles.wrapper}>
             {/* Table Container */}
             <View style={styles.table}>
@@ -84,7 +111,7 @@ const CandyShop = ({navigation}: Props) => {
 
               {DummyData.USER_TABLE_ROWS.map(
                 ({id, username, password, phone}: any) => (
-                  <View style={styles.table_body_single_row}>
+                  <View key={id} style={styles.table_body_single_row}>
                     <View style={{width: '15%'}}>
                       <Text style={styles.table_data}>{id}</Text>
                     </View>

@@ -2,7 +2,7 @@ export default {
   USER_TABLE_ROWS: [
     {
       id: 0,
-      username: 'Candice',
+      username: 'Levi Bruinsma',
       password: '123456',
       phone: '06 777 777 77',
       iban: 'NL77 RABO 7777 7777 77',
