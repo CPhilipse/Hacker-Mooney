@@ -35,6 +35,7 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundColor: colors.accent,
+    // backgroundColor: colors.palePurple,
     padding: _layout.spacing / 2,
     paddingVertical: '15%',
   },

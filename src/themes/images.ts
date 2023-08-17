@@ -16,4 +16,5 @@ export default {
   ssti: require('../assets/images/ssti.png'),
   xxe: require('../assets/images/xml.png'),
   rfi: require('../assets/images/rfi.png'),
+  boy: require('../assets/images/boy.png'),
 };

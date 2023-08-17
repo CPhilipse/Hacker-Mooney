@@ -27,4 +27,13 @@ export default StyleSheet.create({
   lockIcon: {
     marginLeft: metrics.scale(20),
   },
+  input: {
+    // height: 40,
+    marginHorizontal: metrics.scale(20),
+    // marginBottom: metrics.scale(50),
+    // borderWidth: 1,
+    // paddingHorizontal: metrics.horizontal.pagePadding,
+    color: colors.white,
+    // borderRadius: 20,
+  },
 });

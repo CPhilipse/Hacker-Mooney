@@ -10,4 +10,5 @@ export default {
   SSTI: 'Server Side Template Injection',
   LFI: 'Local File Inclusion',
   RFI: 'Remote File Inclusion',
+  LEVI: 'Levi B.',
 };

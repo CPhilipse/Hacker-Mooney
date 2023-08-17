@@ -2,7 +2,7 @@ export default {
   USER_TABLE_ROWS: [
     {
       id: 0,
-      username: 'Levi Bruinsma',
+      username: 'Posh',
       password: '123456',
       phone: '06 777 777 77',
       iban: 'NL77 RABO 7777 7777 77',
@@ -39,6 +39,13 @@ export default {
       id: 5,
       username: 'Jamy',
       password: 'password',
+      phone: '06 777 777 77',
+      iban: 'NL77 RABO 7777 7777 77',
+    },
+    {
+      id: 6,
+      username: 'Levi Bruinsma',
+      password: 'password123',
       phone: '06 777 777 77',
       iban: 'NL77 RABO 7777 7777 77',
     },

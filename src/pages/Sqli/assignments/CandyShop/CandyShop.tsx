@@ -26,10 +26,19 @@ const CandyShop = ({navigation}: Props) => {
 
   const handleLogin = () => {
     DummyData.USER_TABLE_ROWS.map(({username, password}) => {
+      console.log(
+        usernameInput,
+        username,
+        username === usernameInput,
+        password === passwordInput,
+        loggedIn,
+      );
       if (username === usernameInput && password === passwordInput) {
-        onChangeLoggedIn(true);
+        console.log('LOGGEDIN!!!', loggedIn);
+        return onChangeLoggedIn(true);
       } else {
-        onChangeLoggedIn(false);
+        console.log('NOT LOGGEDIN!!!', loggedIn);
+        return onChangeLoggedIn(false);
       }
     });
   };
@@ -51,7 +60,12 @@ const CandyShop = ({navigation}: Props) => {
   return (
     <View style={styles.container}>
       <ScrollView automaticallyAdjustKeyboardInsets>
-        <Url url="https://candyshop.com" />
+        <Url
+          url="https://candyshop.com"
+          textInput={false}
+          onChangeUrl={undefined}
+          urlInput="undefined"
+        />
         <LottieView
           style={styles.candyAnimation}
           source={animations.dancing_candy}
