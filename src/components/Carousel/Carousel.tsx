@@ -30,12 +30,6 @@ import styles from './carousel.style';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const data = [
-  {key: 0, name: 'Candy Shop', icon: images.sweets, page: Pages.CANDY_SHOP},
-  {key: 1, name: 'Detective', icon: images.detective, page: Pages.DETECTIVE},
-  {key: 2, name: "I'm in", icon: images.hacker_cracked, page: Pages.IM_IN},
-];
-
 const {width, height} = Dimensions.get('window');
 const _itemWidth = width * 0.6;
 const _itemHeight = _itemWidth * 1.67;
@@ -177,7 +171,7 @@ function Item({item, index, scrollX, activeIndex, navigation}) {
   );
 }
 
-const Carousel = ({navigation}) => {
+const Carousel = ({navigation, data}) => {
   const scrollX = useSharedValue(0);
   const activeIndex = useSharedValue(0);
   const onScroll = useAnimatedScrollHandler({
