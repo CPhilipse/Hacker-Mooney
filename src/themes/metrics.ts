@@ -73,12 +73,12 @@ const icon = {
 const fonts = {
   title: {
     fontFamily: 'Sansita-Black',
-    fontSize: scale(80),
+    fontSize: scale(100),
     color: colors.black,
   },
   subtitle: {
     fontFamily: 'Sansita-Regular',
-    fontSize: scale(60),
+    fontSize: scale(80),
     color: colors.black,
   },
   smallSubtitle: {
@@ -88,12 +88,12 @@ const fonts = {
   },
   regular: {
     fontFamily: 'Sansita-Regular',
-    fontSize: scale(40),
+    fontSize: scale(45),
     color: colors.black,
   },
   whiteRegular: {
     fontFamily: 'Sansita-Regular',
-    fontSize: scale(40),
+    fontSize: scale(45),
     color: colors.white,
   },
   regularExtraBoldItalic: {

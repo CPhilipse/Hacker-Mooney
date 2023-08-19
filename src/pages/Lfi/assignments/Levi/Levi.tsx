@@ -25,6 +25,8 @@ const Levi = ({navigation}: Props) => {
   const [showLeviHome, onChangeLeviHome] = React.useState(false);
   const [showHackerAnimation, onChangeAnimation] = React.useState(false);
   const [showLeviPassword, onChangeLeviPassword] = React.useState(false);
+  const [showDecryptedPassword, onChangeDecryptedPassword] =
+    React.useState(false);
   const [showLoginForm, onChangeLoginForm] = React.useState(false);
   const [usernameInput, onChangeUsername] = React.useState('');
   const [passwordInput, onChangePassword] = React.useState('');
@@ -69,6 +71,13 @@ const Levi = ({navigation}: Props) => {
       onChangeLeviHome(false);
     } else {
       onChangeLeviPassword(false);
+    }
+
+    if (urlInput.includes('../') && urlInput.includes('/home/levi/hint.txt')) {
+      onChangeDecryptedPassword(true);
+      onChangeLeviHome(false);
+    } else {
+      onChangeDecryptedPassword(false);
     }
   };
 
@@ -174,12 +183,20 @@ const Levi = ({navigation}: Props) => {
             <Text style={styles.output}>afbeeldingen</Text>
             <Text style={styles.output}>hacker.mp4</Text>
             <Text style={styles.output}>wachtwoord.txt</Text>
+            <Text style={styles.output}>hint.txt</Text>
           </>
         )}
 
         {showLeviPassword && (
           <Text style={styles.output}>
-            Vergeet je wachtwoord niet: L3v1_BrU1n$mA
+            Je versleutelde wachtwoord is: (!€₩€#$
+          </Text>
+        )}
+
+        {showDecryptedPassword && (
+          <Text style={styles.output}>
+            Het wachtwoord is Clemens, als je goed kijkt naar het versleutelde
+            wachtwoord kan je er 'Clemens' in lezen
           </Text>
         )}
       </ScrollView>
