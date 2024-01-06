@@ -17,4 +17,8 @@ export default {
   xxe: require('../assets/images/xml.png'),
   rfi: require('../assets/images/rfi.png'),
   boy: require('../assets/images/boy.png'),
+  april: require('../assets/images/mooney/april.png'),
+  cross: require('../assets/images/mooney/cross.png'),
+  israel: require('../assets/images/mooney/israel.png'),
+  location: require('../assets/images/mooney/location.png'),
 };
